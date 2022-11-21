@@ -1,166 +1,245 @@
 # import openpyxl and tkinter modules
 from openpyxl import *
 from tkinter import *
+
+# globally declare wb and sheet variable
+
+# opening the existing excel file
 wb = load_workbook('C:\\Users\\Admin\\Desktop\\excel.xlsx')
- sheet = wb.active
+
+# create the sheet object
+sheet = wb.active
+
+
 def excel():
-     
-    # write given data to an excel spreadsheet
-    # at particular location
-    sheet.cell(row=1, column=1).value = "Name"
-    sheet.cell(row=1, column=2).value = "expert level"
-    sheet.cell(row=1, column=3).value = "session type"
-    sheet.cell(row=1, column=4).value = "mode of payment"
-    sheet.cell(row=1, column=5).value = "Contact number"
-    sheet.cell(row=1, column=6).value = "age"
-    sheet.cell(row=1, column=7).value = "gender"
+	
+	# resize the width of columns in
+	# excel spreadsheet
+	sheet.column_dimensions['A'].width = 30
+	sheet.column_dimensions['B'].width = 10
+	sheet.column_dimensions['C'].width = 10
+	sheet.column_dimensions['D'].width = 20
+	sheet.column_dimensions['E'].width = 20
+	sheet.column_dimensions['F'].width = 40
+	sheet.column_dimensions['G'].width = 50
+
+	# write given data to an excel spreadsheet
+	# at particular location
+	sheet.cell(row=1, column=1).value = "Name"
+	sheet.cell(row=1, column=2).value = "Expert Level"
+	sheet.cell(row=1, column=3).value = "Session Type"
+	sheet.cell(row=1, column=4).value = "Mode Of Payment"
+	sheet.cell(row=1, column=5).value = "Contact Number"
+	sheet.cell(row=1, column=6).value = "Age"
+	sheet.cell(row=1, column=7).value = "Gender"
+
+
 # Function to set focus (cursor)
 def focus1(event):
-    # set focus on the name_field box
-    name_field.focus_set()
+	# set focus on the Expert_Level_field box
+	Expert_Level_field.focus_set()
+
+
 # Function to set focus
 def focus2(event):
-    # set focus on the expert_Level_field box
-    Expert_Level_field.focus_set()
+	# set focus on the Session_Type_field box
+	Session_Type_field.focus_set()
+
+
 # Function to set focus
 def focus3(event):
-    # set focus on the session_type box
-    session_type.focus_set()
+	# set focus on the Mode_Of_Payment_field box
+	Mode_Of_Paymentfield.focus_set()
+
+
 # Function to set focus
 def focus4(event):
-    # set focus on the mode_of_payment box
-    mode_of_payment.focus_set()
+	# set focus on the Contact_Number_field box
+	Contact_Number_field.focus_set()
+
+
 # Function to set focus
 def focus5(event):
-    # set focus on the contact_number_field box
-    contact_number_field.focus_set()
+	# set focus on the Age_field box
+	Age_field.focus_set()
+
+
 # Function to set focus
 def focus6(event):
-    # set focus on the age_field box
-    age_field.focus_set()
- 
+	# set focus on the Gender_field box
+	Gender_field.focus_set()
+
+
 # Function for clearing the
+# contents of text entry boxes
 def clear():
-    # clear the content of text entry box
-    name_field.delete(0, END)
-    expert_level_field.delete(0, END)
-    session_type_field.delete(0, END)
-    mode_of_payment_no_field.delete(0, END)
-    contact_number_field.delete(0, END)
-    age_field.delete(0, END)
-    gender_field.delete(0, END)
+	
+	# clear the content of text entry box
+	Name_field.delete(0, END)
+	Expert_Level_field.delete(0, END)
+	Session_Type_field_field.delete(0, END)
+	Mode_Of_Payment_field.delete(0, END)
+	Contact_Number_field.delete(0, END)
+	Age_field.delete(0, END)
+	Gender_field.delete(0, END)
+
+
 # Function to take data from GUI
 # window and write to an excel file
 def insert():
-     
-    # if user not fill any entry
-    # then print "empty input"
-    if (name_field.get() == "" and
-        expert_level_field.get() == "" and
-        session_type_field.get() == "" and
-        mode_of_payment_no_field.get() == "" and
-        contact_number_field.get() == "" and
-        age_field.get() == "" and
-        gender_field.get() == ""):
-             
-        print("empty input")
- 
-    else:
- 
-        # assigning the max row and max column
-        # value upto which data is written
-        # in an excel sheet to the variable
-        current_row = sheet.max_row
-        current_column = sheet.max_column
- 
-        # get method returns current text
-        sheet.cell(row=current_row + 1, column=1).value = name_field.get()
-        sheet.cell(row=current_row + 1, column=2).value = expert_level_field.get()
-        sheet.cell(row=current_row + 1, column=3).value = session_type_field.get()
-        sheet.cell(row=current_row + 1, column=4).value = form_no_field.get()
-        sheet.cell(row=current_row + 1, column=5).value = contact_number_field.get()
-        sheet.cell(row=current_row + 1, column=6).value = age_id_field.get()
-        sheet.cell(row=current_row + 1, column=7).value = gender_field.get()
- 
-        # save the file
-        wb.save('C:\\Users\\Admin\\Desktop\\excel.xlsx')
- 
-        # set focus on the name_field box
-        name_field.focus_set()
- 
-        # call the clear() function
-        clear()
- 
- 
+	
+	# if user not fill any entry
+	# then print "empty input"
+	if (Name_field.get() == "" and
+		Expert_Level_field.get() == "" and
+		Session_Type_field.get() == "" and
+		Mode_Of_Payment_field.get() == "" and
+		Contact_Number_field.get() == "" and
+		Age_field.get() == "" and
+		Gender_field.get() == ""):
+			
+		print("empty input")
+
+	else:
+
+		# assigning the max row and max column
+		# value upto which data is written
+		# in an excel sheet to the variable
+		current_row = sheet.max_row
+		current_column = sheet.max_column
+
+		# get method returns current text
+		# as string which we write into
+		# excel spreadsheet at particular location
+		sheet.cell(row=current_row + 1, column=1).value = Name_field.get()
+		sheet.cell(row=current_row + 1, column=2).value = Expert_Level_field.get()
+		sheet.cell(row=current_row + 1, column=3).value = Session_Type_field.get()
+		sheet.cell(row=current_row + 1, column=4).value = Mode_Of_Payment_field.get()
+		sheet.cell(row=current_row + 1, column=5).value = Contact_Number_field.get()
+		sheet.cell(row=current_row + 1, column=6).value = Age_field.get()
+		sheet.cell(row=current_row + 1, column=7).value = Gender_field.get()
+
+		# save the file
+		wb.save('C:\\Users\\Admin\\Desktop\\excel.xlsx')
+
+		# set focus on the name_field box
+		name_field.focus_set()
+
+		# call the clear() function
+		clear()
+
+
 # Driver code
 if __name__ == "__main__":
-     
-    # create a GUI window
-    root = Tk()
- 
-    # set the background colour of GUI window
-    root.configure(background='light green')
- 
-    # set the title of GUI window
-    root.title("registration form")
- 
-    # set the configuration of GUI window
-    root.geometry("500x300")
- 
-    excel()
- 
-    # create a Form label
-    heading = Label(root, text="Form", bg="light green")
- 
-    # create a Name label
-    name = Label(root, text="Name", bg="light green")
- 
-    # create a expert level label
-    Expert_level = Label(root, text="expert level", bg="light green")
- 
-    # create a Session type label
-    Session_type = Label(root, text="Session type", bg="light green")
- 
-    # create a mode of payment. label
-    mode_of_payment = Label(root, text="mode of payment.", bg="light green")
- 
-    # create a Contact Number. label
-    contact_number = Label(root, text="Contact No.", bg="light green")
- 
-    # create a age label
-    age = Label(root, text="age", bg="light green")
- 
-    # create a gender label
-    gender = Label(root, text="gender", bg="light green")
-    heading.grid(row=0, column=1)
-    name.grid(row=1, column=0)
-    course.grid(row=2, column=0)
-    sem.grid(row=3, column=0)
-    form_no.grid(row=4, column=0)
-    contact_no.grid(row=5, column=0)
-    email_id.grid(row=6, column=0)
-    address.grid(row=7, column=0)
- 
-    # create a text entry box
-    name_field = Entry(root)
-    expert_level_field = Entry(root)
-    session_type_field = Entry(root)
-    mode_of_payment_field = Entry(root)
-    contact_number_field = Entry(root)
-    age_field = Entry(root)
-    gender_field = Entry(root)
- 
-    name_field.bind("<Return>", focus1)
-    expert_level_field.bind("<Return>", focus2)
-    session_type_field.bind("<Return>", focus3)
-     mode_of_payment_field.bind("<Return>", focus4)
-    contact_number_field.bind("<Return>", focus5)
-age_field.bind("<Return>", focus6)
- 
-    # Submit Button 
-    submit = Button(root, text="Submit", fg="Black",
-                            bg="Red", command=insert)
-    submit.grid(row=8, column=1)
- 
-    # start the GUI
-    root.mainloop()
+	
+	# create a GUI window
+	root = Tk()
+
+	# set the background colour of GUI window
+	root.configure(background='light green')
+
+	# set the title of GUI window
+	root.title("registration form")
+
+	# set the configuration of GUI window
+	root.geometry("500x300")
+
+	excel()
+
+	# create a Form label
+	heading = Label(root, text="SignUP Form", bg="light green")
+
+	# create a Name label
+	name = Label(root, text="Name", bg="light green")
+
+	# create a Course label
+	course = Label(root, text="Expert level", bg="light green")
+
+	# create a Semester label
+	sem = Label(root, text="Session type", bg="light green")
+
+	# create a Form No. label
+	form_no = Label(root, text="mode of payment.", bg="light green")
+
+	# create a Contact No. label
+	contact_no = Label(root, text="Contact No.", bg="light green")
+
+	# create a Email id label
+	email_id = Label(root, text="Age", bg="light green")
+
+	# create a address label
+	address = Label(root, text="Gender", bg="light green")
+
+	# grid method is used for placing
+	# the widgets at respective positions
+	# in table like structure .
+	heading.grid(row=0, column=1)
+	name.grid(row=1, column=0)
+	course.grid(row=2, column=0)
+	sem.grid(row=3, column=0)
+	form_no.grid(row=4, column=0)
+	contact_no.grid(row=5, column=0)
+	email_id.grid(row=6, column=0)
+	address.grid(row=7, column=0)
+
+	# create a text entry box
+	# for typing the information
+	Name_field = Entry(root)
+	Expert_Level_field = Entry(root)
+	Session_Type_field = Entry(root)
+	Mode_Of_Payment_field = Entry(root)
+	Contact_Number_field = Entry(root)
+	Age_field = Entry(root)
+	Gender_field = Entry(root)
+
+	# bind method of widget is used for
+	# the binding the function with the events
+
+	# whenever the enter key is pressed
+	# then call the focus1 function
+	Name_field.bind("<Return>", focus1)
+
+	# whenever the enter key is pressed
+	# then call the focus2 function
+	Expert_Level_field.bind("<Return>", focus2)
+
+	# whenever the enter key is pressed
+	# then call the focus3 function
+	Session_Type_field.bind("<Return>", focus3)
+
+	# whenever the enter key is pressed
+	# then call the focus4 function
+	Mode_Of_Payment_field.bind("<Return>", focus4)
+
+	# whenever the enter key is pressed
+	# then call the focus5 function
+	Contact_Number_field.bind("<Return>", focus5)
+
+	# whenever the enter key is pressed
+	# then call the focus6 function
+	Age_field.bind("<Return>", focus6)
+	# whenever the enter key is pressed
+	# then call the focus6 function
+	Gender_field.bind("<Return>", focus7)
+
+	# grid method is used for placing
+	# the widgets at respective positions
+	# in table like structure .
+	Nameame_field.grid(row=1, column=1, ipadx="100")
+	Expert_Level_field.grid(row=2, column=1, ipadx="100")
+	Session_Type_field.grid(row=3, column=1, ipadx="100")
+	Mode_Of_Payment_field.grid(row=4, column=1, ipadx="100")
+	Contact_Number_field.grid(row=5, column=1, ipadx="100")
+	Age_field.grid(row=6, column=1, ipadx="100")
+	Gender_field.grid(row=7, column=1, ipadx="100")
+
+	# call excel function
+	excel()
+
+	# create a Submit Button and place into the root window
+	submit = Button(root, text="Submit", fg="Black",
+							bg="Red", command=insert)
+	submit.grid(row=8, column=1)
+
+	# start the GUI
+	root.mainloop()
