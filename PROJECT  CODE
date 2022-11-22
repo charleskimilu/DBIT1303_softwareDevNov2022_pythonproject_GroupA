@@ -5,7 +5,7 @@ from tkinter import *
 # globally declare wb and sheet variable
 
 # opening the existing excel file
-wb = load_workbook('C:\\Users\\Admin\\Desktop\\excel.xlsx')
+wb = load_workbook('C:\\Users\\user\\Desktop\\excel.xlsx')
 
 # create the sheet object
 sheet = wb.active
@@ -120,7 +120,7 @@ def insert():
 		sheet.cell(row=current_row + 1, column=7).value = Gender_field.get()
 
 		# save the file
-		wb.save('C:\\Users\\Admin\\Desktop\\excel.xlsx')
+		wb.save('C:\\Users\\user\\Desktop\\excel.xlsx')
 
 		# set focus on the name_field box
 		name_field.focus_set()
@@ -220,12 +220,12 @@ if __name__ == "__main__":
 	Age_field.bind("<Return>", focus6)
 	# whenever the enter key is pressed
 	# then call the focus6 function
-	Gender_field.bind("<Return>", focus7)
+	Gender_field.bind("<Return>", focus1)
 
 	# grid method is used for placing
 	# the widgets at respective positions
 	# in table like structure .
-	Nameame_field.grid(row=1, column=1, ipadx="100")
+	Name_field.grid(row=1, column=1, ipadx="100")
 	Expert_Level_field.grid(row=2, column=1, ipadx="100")
 	Session_Type_field.grid(row=3, column=1, ipadx="100")
 	Mode_Of_Payment_field.grid(row=4, column=1, ipadx="100")
